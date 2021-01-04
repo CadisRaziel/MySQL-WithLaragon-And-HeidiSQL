@@ -1,0 +1,71 @@
+COMENTARIOS em MySQL
+
+Para introduzir um comentario
+-- = uma linha apenas
+exemplo : -- SELECT * FROM products WHERE price BETWEEN 10 AND 10
+
+Para introduzir um comentario 
+/**/ = em varias linhas
+exemplo : /* SELECT * FROM ALL
+             SELECT * FROM produts WHERE price */
+             
+             
+//===================================================================================================
+SELECT
+
+-- SELECT * FROM donativos
+
+
+-- SELECT id_socio, nome, telefone FROM socios 
+SELECT id_socio, telefone, nome FROM socios
+referente a esses dois exemplo acima eu inverti nome e telefone na 2 linha, isso não influencia em nada
+o SQL utiliza a ordem ou seja SELECT 1º aparecer id_socio, 2º aparecer nome, 3º aparecer telefone FROM socios
+ele vai na ordem do 1, 2, 3 independente se for nome ou id_socio ou telefone 
+
+SELECT id_socio, nome, nome FROM socios = posso colocar duas colunas com nome, mas não é correto
+
+SELECT nome, nome AS nome1 FROM socios = posso colocar a coluna nome com um novo nome utilizando o AS
+
+
+os dois exemplos abaixo atinge o mesmo proposito independente de '' ou ""
+SELECT nome, nome AS "novo nome" FROM socios = para colocar um novo nome com ESPAÇO utilize ""
+SELECT nome, nome AS 'novo nome' FROM socios = para colocar um novo nome com ESPAÇO utilize ''
+
+
+//===================================================================================================
+NOW
+SELECT NOW() = devolve a data e hora atual
+
+
+//===================================================================================================
+MD5
+SELECT MD5('abcdef') AS chave = cria uma chave encriptada
+
+
+//===================================================================================================
+OPERAÇÕES MATEMATICAS
+SELECT 10+20 AS total = para fazer operações matematicas
+
+
+//===================================================================================================
+WHERE
+lembrando que a clausula WHERE só funciona no MySQL outras linguagens de SQL pediriam para por mais ou menos assim SELECT id_socio FROM socios WHERE id_socio = 10
+
+SELECT * FROM socios WHERE id_socio = 10 = mostra apenas o socio de id_socio 10
+SELECT nome FROM socios WHERE id_socio = 10 = mostra apenas o nome do socio id_socio 10
+
+SELECT id_socio, nome FROM socios WHERE id_socio <= 10 = mostra os id_socio menor que 10 ou seja do 1 ao 9
+SELECT id_socio, nome FROM socios WHERE id_socio <= 10 = mostra os id_socio menor ou igual que 10 ou seja do 1 ao 10
+
+SELECT id_socio, nome FROM socios WHERE NOT id_socio = 10 = mostra todos os id_socio menos o 10(tem a mesma função que o <>)
+SELECT id_socio, nome FROM socios WHERE id_socio <> 10 = mostra todos os id_socio menos o 10 (<> = diferente de 10)
+
+SELECT id_socio, nome FROM socios WHERE id_socio = 10 OR id_socio = 20 = mostra o nome e id do socio 10 e do socio 20
+
+SELECT id_socio, nome FROM socios WHERE id_socio = 10 AND id_socio = 20 = metodo errado de usar o AND !
+SELECT * FROM socios WHERE id_socio = 3 AND cidade = 'Amadora' = metodo certo de usar o AND vai mostrar o id_socio e a cidade
+cuidado pois se voce colocar o AND e não exister o resultado ele não vai retornar nada, exemplo a cidade do id_socio 3 é amadora, se eu colocar lisboa não vai mostrar nada
+SELECT * FROM socios WHERE id_socio <= 100 AND cidade = 'Lisboa' = vai procurar todos os socios com id menor ou igual a 100 que residem em lisboa
+SELECT * FROM socios WHERE id_socio >= 100 AND id_socio <= 400 AND cidade = 'Porto' = vai procurar todos os socios com id maiour ou igual 100  e menor ou igual a 400 que resida em Porto
+
+
