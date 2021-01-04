@@ -1,0 +1,28 @@
+//===================================================================================================
+DISTINCT
+
+SELECT DISTINCT cidade FROM socios = para saber as cidades dos socios
+DISTINTIC permite destinguir todos resultados duplpicados, ou seja não vai mostrar resultado repitido vai mostrar apenas 1 nome
+exemplo tem 15 lisboa, vai aparecer 1 lisboa só
+
+SELECT DISTINCT quantia FROM donativos = aparece os donativos (como exemplo acima se tiver numeros repitidos vai aparecer 1 só)
+SELECT DISTINCT quantia FROM donativos WHERE quatia < 10 = para aparecer os donativos menor que 10
+SELECT DISTINCT cidade FROM socios WHERE id_socio <= 100 = para aparecer as cidades dos socios id menor que 100
+
+SELECT DISTINCT cidade FROM socios = vai mostrar as cidades dos socios (não vai mostrar cidades repitidas)
+
+
+
+//===================================================================================================
+ORDER BY 
+ordena por ordem alfabetica ou do ultimo pro primeiro
+
+SELECT nome FROM socios ORDER BY nome = colcoa os nomes em ordem alfabetica
+SELECT nome FROM socios ORDER BY nome ASC = mesma função que a linha acima
+
+
+SELECT nome FROM socios ORDER BY nome DESC = X ao A
+
+
+SELECT nome,cidade FROM socios ORDER BY cidade ASC = organiza as cidades por ordem alfabetica 
+SELECT nome,cidade FROM socios ORDER BY nome, cidade  = seleciona os nomes por ordem alfabetica porém a ciadde não
