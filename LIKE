@@ -1,0 +1,33 @@
+LIKE
+pesquisa aprofundada
+exemplo quero procurar nos socios que começam com a letra "A"
+% = procura a letra desejada e o restante do nome
+%test% = primeiro % tudo que tiver antes de teste, segundo % tudo que tiver depois de teste
+
+SELECT * FROM socios WHERE nome LIKE 'a%' = procura a letra A e o restante do nome
+
+SELECT * FROM socios WHERE nome LIKE '%garcia%' = procurar todos os nomes que tem garcia 
+
+SELECT * FROM socios WHERE telefone LIKE '93%' = procura todos telefones que começa com 93
+SELECT * FROM socios WHERE telefone LIKE '93%6' = procura todos os telefones que começa com 93 e termina com 6
+SELECT * FROM socios WHERE telefone LIKE '93_6%' = procura todos os telefones que começa com 93 e que na 4 casa tenha o numero 6
+o _ pula casas ou seja 123_5 aqui eu pulei a 4 casa
+
+SELECT * FROM socios WHERE telefone LIKE '93%' AND id_socio >= 100 AND id_socio <= 200 = procura todos os telefones que começa com 93 porém nos socios que forem maior ou igual a 100 ou menor ou igual a 200
+
+
+
+//===================================================================================================
+NOT LIKE
+
+SELECT * FROM socios WHERE telefone NOT LIKE '93%' = mostra todos os socios menos os que tiver 93
+SELECT * FROM socios WHERE nome NOT LIKE 'a%' = mostra todos os nomes menos os que inicia com a letra A
+SELECT * FROM socios WHERE nome NOT LIKE '%nunes%' = mostra todos os nomes menos os que contem NUNES
+
+
+//===================================================================================================
+LIMIT (outros sistemas de Database não utiliza o LIMIT, usam TOP ou NUMROM sempre ficar atento)
+
+SELECT * FROM socios WHERE nome LIKE 'ana%' LIMIT 3 = vai mostar somente as 3 primeiras ANAS
+SELECT * FROM socios WHERE nome LIKE 'ana %' ORDER BY id_socio DESC LIMIT 3 = vai mostrar somente as ultimas 3 Anas
+veja como eu concatenei com ORDER BY, DESC...
